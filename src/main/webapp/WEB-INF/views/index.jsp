@@ -10,7 +10,7 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>13</em>
+            <em>${donationsQuantity}</em>
 
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
@@ -18,7 +18,7 @@
         </div>
 
         <div class="stats--item">
-            <em>5</em>
+            <em>${donations}</em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
@@ -76,30 +76,22 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
-
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
-            </li>
-
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
-            </li>
-
+            <c:forEach var="institution" items="${institutions}" varStatus="counter">
+                <c:if test="${counter.index%2 == 0}">
+                    <li>
+                        <div class="col">
+                            <div class="title">${institutions[counter.index].name}</div>
+                            <div class="subtitle">${institutions[counter.index].description}</div>
+                        </div>
+                        <c:if test="${not counter.last}">
+                            <div class="col">
+                                <div class="title">${institutions[counter.index+1].name}</div>
+                                <div class="subtitle">${institutions[counter.index+1].description}</div>
+                            </div>
+                        </c:if>
+                    </li>
+                </c:if>
+            </c:forEach>
         </ul>
     </div>
 
