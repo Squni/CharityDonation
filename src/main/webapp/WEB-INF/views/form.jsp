@@ -31,7 +31,7 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form:form modelAttribute="donation" action="/form/confrim" method="post">
+        <form:form modelAttribute="donation" action="/app/form-confirm" method="post">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
@@ -74,7 +74,7 @@
                 <c:forEach items="${institutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="radio" name="organization" value="${institution.id}" class="institution"/>
+                            <input type="radio" name="institution" value="${institution.id}" class="institution"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                   <div class="title" id="inst${institution.id}">${institution.name}</div>
@@ -167,18 +167,18 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li id="summary-street">Prosta 51</li>
-                                <li id="summary-city">Warszawa</li>
-                                <li id="summary-zipCode">99-098</li>
-                                <li id="summary-phone">123 456 789</li>
+                                <li id="summary-street"></li>
+                                <li id="summary-city"></li>
+                                <li id="summary-zipCode"></li>
+                                <li id="summary-phone"></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li id="summary-date">13/12/2018</li>
-                                <li id="summary-time">15:40</li>
+                                <li id="summary-date"></li>
+                                <li id="summary-time"></li>
                                 <li id="summary-comment">Brak uwag</li>
                             </ul>
                         </div>

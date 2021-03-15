@@ -11,31 +11,21 @@
 <%@include file="/WEB-INF/sections/header.jsp" %>
 
 <section class="login-page">
-    <h2>Załóż konto</h2>
-    <form:form modelAttribute="user" method="post">
+    <h2>Resetuj hasło</h2>
+    <c:if test="${notFound != null}"><span style="color: red">${notFound}</span></c:if>
+    <form action="/reset" method="post">
         <div class="form-group">
-            <form:input path="name" placeholder="Imię"/>
+            <input type="email" name="email" placeholder="Email"/>
         </div>
-        <div class="form-group">
-            <form:input path="lastName" placeholder="Nazwisko"/>
-        </div>
-        <div class="form-group">
-            <form:input path="email" placeholder="Email"/>
-        </div>
-        <div class="form-group">
-            <form:password path="password" placeholder="Hasło"/>
-        </div>
-        <div class="form-group">
-            <input type="password" name="passConf" placeholder="Powtórz hasło"/>
-        </div>
-
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="form-group form-group--buttons">
-            <a href="/login" class="btn btn--without-border">Zaloguj się</a>
-            <button class="btn" type="submit">Załóż konto</button>
+            <button type="button" name="back" onclick="history.back()" class="btn btn--without-border">Powrót</button>
+            <button class="btn" type="submit">Wyślij</button>
         </div>
-    </form:form>
+    </form>
 </section>
 
 <%@include file="/WEB-INF/sections/footer.jsp" %>
+
 </body>
 </html>

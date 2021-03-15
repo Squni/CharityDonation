@@ -17,11 +17,11 @@ public class HomeController {
         this.donationService = donationService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("home")
     public String homeAction(Model model){
         model.addAttribute("institutions", institutionService.getInstitution());
         model.addAttribute("donationsQuantity", donationService.getDonationsSum());
-        model.addAttribute("donations", donationService.getDonations());
+        model.addAttribute("donations", donationService.getDonationsQuantity());
         return "index";
     }
 }
